@@ -6,7 +6,7 @@ end
 
 require('onedark').setup {
   style = 'darker',
-  --transparent = true,
+  --  transparent = true,
 }
 
 onedark.load()

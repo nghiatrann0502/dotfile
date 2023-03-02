@@ -18,7 +18,7 @@ telescope.setup {
     },
   },
   extensions = {
-    extensions_list = { "themes", "dracula" },
+    extensions_list = { "themes", "onedark" },
     file_browser = {
       theme = "dropdown",
       -- disables netrw and use telescope-file-browser in its place
