@@ -1,5 +1,10 @@
-require('base')
-require('highlights')
-require('maps')
+if vim.loader then
+  vim.loader.enable()
+end
 
-require('plugins')
+_G.dd = function(...)
+  require("util.debug").dump(...)
+end
+vim.print = _G.dd
+
+require("config.lazy")
