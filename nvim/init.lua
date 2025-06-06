@@ -1,2 +1,2 @@
-require("nghiatrann0502.core")
-require("nghiatrann0502.lazy")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
