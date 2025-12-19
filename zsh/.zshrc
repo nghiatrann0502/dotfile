@@ -70,14 +70,9 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-	git
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-export EDITOR='nvim'
 
 # User configuration
 
@@ -86,35 +81,69 @@ export EDITOR='nvim'
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-alias reload="source ~/.zshrc"
-alias zshconfig="nvim ~/.zshrc"
-alias vim="nvim"
-alias cd="z"
-alias ls='eza -lh --group-directories-first --icons --hyperlink'
-alias lsa='ls -a'
-alias lt='eza --tree --level=2 --long --icons --git --git-ignore'
-alias lta='lt -a'
-alias cls='clear'
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
 
-source <(fzf --zsh)
-alias f=fzf
-# preview with bat
-alias fp='fzf --preview="bat --color=always {}"'
-# open neovim with select file by tab
-alias fv='nvim $(fzf -m --preview="bat --color=always {}")'
+# Compilation flags
+# export ARCHFLAGS="-arch $(uname -m)"
+
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+fastfetch
+alias reload="source ~/.zshrc"
+alias cd="z"
+alias ls="eza --icons --group-directories-first"
+alias ll="eza --icons --group-directories-first -l"
+alias cat="bat"
+alias lg="lazygit"
+alias cls="clear"
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# --- FZF Catppuccin Mocha Theme ---
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+# --- FZF x Ripgrep Integration ---
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git"'
+
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export FZF_CTRL_T_OPTS="
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+fif() {
+  if [ ! "$1" ]; then
+    echo "Usage: fif <string>"
+    return 1
+  fi
+  rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
+}
+
+# Added by Antigravity
+export PATH="/Users/nghiatran/.antigravity/antigravity/bin:$PATH"
+
 # GOLANG
 export GOROOT="/usr/local/go"
-export GOPATH="$HOME/dev/go"
-export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
-export PATH="$PATH:$(go env GOPATH)/bin"
-export GOPRIVATE="github.com/nghiatrann0502/*,github.com/capy-engineer/*"
-
-# RUST
-export PATH="$HOME/.cargo/bin:$PATH"
+export GOPRIVATE="github.com/nghiatrann0502/*"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"

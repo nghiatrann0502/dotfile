@@ -1,0 +1,19 @@
+gui:
+  theme:
+    activeBorderColor:
+      - "#89b4fa" # Blue
+      - bold
+    inactiveBorderColor:
+      - "#a6adc8" # Subtext0
+    optionsTextColor:
+      - "#89b4fa" # Blue
+    selectedLineBgColor:
+      - "#313244" # Surface0
+    cherryPickedCommitBgColor:
+      - "#45475a" # Surface1
+    cherryPickedCommitFgColor:
+      - "#89b4fa" # Blue
+    defaultFgColor:
+      - "#cdd6f4" # Text
+    searchingActiveBorderColor:
+      - "#f9e2af" # Yellow

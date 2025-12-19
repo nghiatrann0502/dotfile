@@ -1,0 +1,84 @@
+{
+  "files.autoSave": "afterDelay",
+  "editor.inlineSuggest.enabled": true,
+
+  // --- 1. GIAO DIỆN & THEME (Catppuccin) ---
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.startupEditor": "none",
+  "workbench.sideBar.location": "left",
+  "workbench.activityBar.location": "top",
+  "window.titleBarStyle": "custom",
+
+  // --- 2. FONT & TYPOGRAPHY (Tối ưu đọc code) ---
+  // Ưu tiên JetBrains Mono (hỗ trợ Ligatures tốt nhất), sau đó đến Fira Code
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Fira Code', 'Cascadia Code', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.6,
+  "editor.letterSpacing": 0.5,
+  "editor.fontWeight": "400",
+
+  // --- 3. EDITOR BEHAVIOR ---
+  "editor.cursorBlinking": "smooth", 
+  "editor.cursorSmoothCaretAnimation": "on", 
+  "editor.cursorStyle": "line",
+  "editor.smoothScrolling": true, 
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false, 
+  "editor.renderWhitespace": "selection", 
+  
+  // Bracket Pair (Quan trọng cho Rust/Svelte)
+  // "editor.guides.bracketPairs": true,
+  // "editor.bracketPairColorization.enabled": true,
+
+  // --- 4. TERMINAL (Ghostty-like experience) ---
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "block", 
+  "terminal.integrated.gpuAcceleration": "on", 
+
+  // --- RUST ---
+  "rust-analyzer.check.command": "clippy", 
+  "rust-analyzer.cargo.buildScripts.enable": true,
+  "rust-analyzer.procMacro.enable": true,
+
+  // --- GOLANG ---
+  "go.useLanguageServer": true,
+  // "go.lintOnSave": "package",
+  "go.toolsManagement.autoUpdate": true,
+  "gopls": {
+    "ui.semanticTokens": true,
+    "ui.completion.usePlaceholders": true
+  },
+
+  // --- SVELTE ---
+  // "[svelte]": {
+  //   "editor.defaultFormatter": "svelte.svelte-vscode"
+  // },
+
+  // "apc.electron": {
+  //   "titleBarStyle": "hidden", // Ẩn thanh tiêu đề gốc
+  //   "trafficLightPosition": { "x": 12, "y": 10 } // (Chỉ cho Mac) chỉnh nút đóng mở
+  // },
+
+  // "apc.stylesheet": {
+  //   // 1. TẠO KHỐI (BLOCKS) CHO SIDEBAR & EDITOR
+  //   ".sidebar": "border-radius: 12px; margin: 5px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); border: 1px solid #313244 !important;",
+  //   ".editor-container": "border-radius: 12px; margin: 5px 5px 5px 0px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.3); border: 1px solid #313244 !important;",
+    
+  //   // 2. TẠO KHỐI CHO TERMINAL (PANEL DƯỚI)
+  //   ".panel": "border-radius: 12px; margin: 0 5px 5px 5px; border: 1px solid #313244 !important;",
+    
+  //   // 3. BO TRÒN TABS
+  //   ".tabs-container": "padding-left: 5px;",
+  //   ".tab": "border-radius: 8px 8px 0 0 !important; margin-right: 2px !important; border: none !important;",
+    
+  //   // 4. CHỈNH ACTIVITY BAR (Thanh icon dọc)
+  //   ".activitybar": "margin-top: 5px; margin-bottom: 5px; border-radius: 0 12px 12px 0;",
+    
+  //   // 5. ẨN CÁC VIỀN THỪA THÃI
+  //   ".split-view-view .visible": "border: none !important;"
+  // }
+}
