@@ -1,5 +1,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 
+# Setup ghostty terminal
+[ "$TERM" = "xterm-ghostty" ] && export TERM=xterm-256color
+
 ZSH_THEME="robbyrussell"
 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting fzf-tab rust)
